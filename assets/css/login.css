@@ -1,0 +1,214 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+  }
+  .login-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  /* Retangulo esquerdo */
+  .rectangle-large {
+    width: 526px;
+    height: 100%;
+    background: #93B1A6;
+    position: absolute;
+    left: 0px; 
+    top: 0px;
+  }
+  /* Caixas de entrada */
+  .input-container {
+    position: absolute;
+    width: 526px;
+    height: 76px;
+    border-radius: 22px;
+  }
+  .input-email {
+    left: 720px;
+    top: 285px;
+  }
+  .input-senha {
+    left: 720px;
+    top: 400px;
+  }
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    height: 76px;
+    background: #93B1A6;
+    border: none;
+    font-size: 18px;
+    padding-left: 70px;
+    color: white;
+    white-space: nowrap;
+    border-radius: 22px;
+  }
+  input[type="text"]::placeholder, input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.50);
+  }
+  input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+  }
+
+  /* Botão de Login */
+  .rectangle-small {
+    width: 259px;
+    height: 76px;
+    background: #183D3D;
+    position: absolute;
+    left: 859px; 
+    top: 520px;
+    border-radius: 22px;
+  }
+  .text-large {  /* "Bem vindo" */
+    font-size: 40px;
+    color: white;
+    font-weight: 600;
+    position: absolute;
+    white-space: nowrap;
+    left: 150px;
+    top: 295px;
+  }
+  .text-medium { /* "Faça login" */
+    font-size: 40px;
+    color: black;
+    font-weight: 600;
+    position: absolute;
+    white-space: nowrap;
+    left: 864px; 
+    top: 30px;
+  }
+  .text-medium2 { /* "Entrar"*/
+    font-size: 40px;
+    color: white;
+    font-weight: 400;
+    position: absolute;
+    white-space: nowrap;
+    left: 935px;
+    top: 530px;
+  }
+  .text-small { /* "ou use seu Email..." */
+        position: absolute;
+        font-size: 24px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.50);
+        text-align: center;
+        word-wrap: break-word;
+        width: 416px;
+        height: 51px; 
+        left: 775px; 
+        top: 195px; 
+        text-align: center;
+  }
+
+  /* Icones de login externo */
+  .icon-container {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: 10px;
+    top: 15px; /* Centralizar verticalmente */
+  }
+  .icon-linkedin {
+    left: 836px;
+    top: 110px;
+  }
+  .icon-facebook {
+    left: 960px; 
+    top: 110px;
+  }
+  .icon-google {
+    left: 1084px;
+    top: 110px;
+  }
+  /* Icones das caixas de entrada */
+  .input-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Media Query para ajustar elementos quando a largura do navegador for menor que 1251px */
+@media screen and (max-width: 1250px) {
+   .text-medium {
+    left: 764px; /* Reduzido de 864px para 764px */
+  }
+  .text-medium2 {
+    left: 835px; /* Reduzido de 864px para 764px */
+  }
+   .text-small {
+    left: 675px; /* Reduzido de 775px para 675px */
+  }
+
+  .icon-linkedin {
+    left: 736px; /* Reduzido de 836px para 736px */
+  }
+
+  .icon-facebook {
+    left: 860px; /* Reduzido de 960px para 860px */
+  }
+
+  .icon-google {
+    left: 984px; /* Reduzido de 1084px para 984px */
+  }
+
+  .inputs .input-container {
+    left: 620px; /* Reduzido de 720px para 620px */
+  }
+
+  .rectangle-small {
+    left: 759px; /* Reduzido de 859px para 759px */
+  }
+}
+
+/* Adicione esta nova regra de mídia query */
+@media screen and (max-width: 1157px) {
+  /* Esconde os elementos quando a largura da janela for menor que 1158px */
+  .rectangle-large,
+  .text-large {
+      display: none;
+  }
+
+  /* Centraliza todos os elementos de forma responsiva */
+  .text-medium,
+.text-medium2,
+.text-small,
+.inputs .input-container,
+.rectangle-small {
+    left: 50%;
+    transform: translateX(-50%);
+}
+  /* Centralize os icones horizontalmente de forma diferente para os 3 estarem igualmente espaçados */
+  .icon-linkedin {
+    left: 25%;
+    transform: translateX(-50%);
+  }
+
+  .icon-facebook {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .icon-google {
+    left: 75%;
+    transform: translateX(-50%);
+  }
+
+  .input-container {
+    width: 90%; /* Defina a largura como 90% da largura do contêiner pai */
+    height: auto; /* Mantenha a altura automática para manter as proporções */
+}
+}

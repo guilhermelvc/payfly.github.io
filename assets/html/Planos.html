@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayFly</title>
+    <link rel="icon" type="image/png" href="../imgs/Favicon.png">
+    <!-- ======= Estilos ====== -->
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/form-modal.css">
+</head>
+
+<body>
+    <!-- =============== Menu Navegação ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="../imgs/logo.svg" alt="Logo">
+                        </span>
+                        <span class="title">PayFly</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Painel.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Painel Principal</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Despesas.html">
+                        <span class="icon">
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </span>
+                        <span class="title">Despesas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Receitas.html">
+                        <span class="icon">
+                            <ion-icon name="card-outline"></ion-icon>
+                        </span>
+                        <span class="title">Receitas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Planos.html">
+                        <span class="icon">
+                            <ion-icon name="airplane-outline"></ion-icon>
+                        </span>
+                        <span class="title">Planos</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Configurações.html">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Configurações</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="../../Index.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Principal ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Pesquise aqui">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <a href="Configurações.html"><img src="../imgs/customer01.jpg" alt="usuario"></a>
+                </div>
+            </div>
+
+            <!-- ======================= Cartões ================== -->
+            <div class="cardBox">
+                
+                <div class="card">
+                    <div>
+                        <div class="numbers"><p id="totalPlanoDisplay">R$ 0,00</p></div>
+                        <div class="cardName">Total Planos</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="cash-outline"></ion-icon>
+                    </div>
+                </div>                
+            
+            
+                <!-- Novo cartão para exibir o valor das receitas filtradas -->
+                <div class="card">
+                    <div>
+                        <div class="numbers"><p id="filteredPlanoDisplay">R$ 0,00</p></div>
+                        <div class="cardName">Planos Filtrados</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="filter-outline"></ion-icon>
+                    </div>
+                </div>
+            
+            </div>
+
+            <!-- ================ Dashboard ================= -->
+            <section id="transaction">
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <a onclick="Modal.open()" class="add-transaction-button">+ Adicionar Plano</a>
+                        <a href="#" onclick="FilterModal.open()" class="btn1"><i class=" filter fas fa-sort-down"></i><ion-icon name="filter-outline"></ion-icon> Filtrar</a>
+                        
+                    </div>
+
+                    <table id='data-table'>
+                        <thead>
+                            <tr>
+                                <td>Descrição</td>
+                                <td>Valor</td>
+                                <td>Data</td>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="footOptions">
+                        <a href="#" onclick="filterClear()" class="btn1">Limpar Filtro</a>
+                </div> 
+            </section>
+
+             <!-- =========== Modal =========  -->
+
+             
+    <div class="modal-overlay">
+        <div class="modal">
+            <div id="form">
+                <h2>Nova Transação</h2>
+
+                <form onsubmit="Form.submit(event)">
+                    <div class="input-group">
+                        <label for="description" class="sr-only">Descrição</label>
+                        <input type="text" id="description" name="description" placeholder="Descrição">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="amount" class="sr-only">Valor</label>
+                        <input type="number" id="amount" name="amount" placeholder="0,00" step="0.01">
+                    </div>
+
+                    <small class="help-for-modal">Use o sinal (-) para valores negativos. </small>
+
+                    <div class="input-group">
+                        <label for="date" class="sr-only">Data</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                    <div class="input-group actions">
+                        <a onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================  Modal do Filtro ============================-->
+
+    <div class="modal-overlay filter-modal-overlay">
+        <div class="modal filter-modal">
+            <button class="close-filter-modal">Fechar</button>
+            <h2>Filtrar Transações</h2>
+            <form id="filter-form">
+                <div class="input-group">
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" name="descricao">
+                </div>
+                <div class="input-group">
+                    <label for="valor">Valor:</label>
+                    <input type="number" id="valor" name="valor">
+                </div>
+
+                <small class="help-for-modal">Use o sinal (-) para valores negativos. </small>
+                
+                <div class="input-group">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data">
+                </div>
+                <div class="input-group actions">
+                    <button type="submit" class="button">Filtrar</button>
+                    <button type="button" class="cancel">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="toast">
+        <div class="img"><h1>×</h1></div>
+        <div class="description">Por favor, preencha todos os campos!</div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="../js/main.js"></script>
+    <script src="../js/plano.js" ></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
