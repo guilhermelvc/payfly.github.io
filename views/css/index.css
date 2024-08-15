@@ -1,0 +1,346 @@
+/* ======= Estilos ======= */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+  text-decoration: none; /* Remove sublinhado */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif; /* Fonte Ubuntu */
+  font-size: 20px;
+  text-decoration: none; /* Remove sublinhado */
+  background: white;
+}
+
+h2 {
+  margin-bottom: 50px;
+}
+
+
+                                                              /* Cabeçalho */
+
+.container {
+  position: fixed; /* Cabeçalho se mantem no topo da tela independentemente de como o usuário role ela */
+  width: 100%;
+  z-index: 1000; /* Garante que o cabeçalho fique em cima do conteúdo */
+  top: 0;
+}
+
+/* Conteudo do cabeçalho */
+.fixed-header {
+  display: flex; /* Torna a distribuição do conteudo dentro do cabeçalho dinamica e responsiva, as linhas de baixo formatam eles */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white; /* Cor de fundo do cabeçalho */
+}
+/* Icone do menu */
+.menu-icon {
+  cursor: pointer;
+  font-size: 40px;
+  color: black;
+}
+/* Textos no conteudo do cabeçalho */
+.text-menu {
+  color: black; /* Cor do texto do menu */
+  margin: 0 20px; /* Espaçamento entre os itens do menu */
+  text-decoration: none; /* Remove sublinhado */
+  font-size: 20px; /* Tamanho da fonte */
+}
+/* Icone do usuario */
+.User {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+/* Classe usada no script de funcionalidade do icone do menu */
+.item-menu.hide {
+  display: none;
+}
+
+                                                             /* Primeira seção da pagina */
+.central-div {
+  margin-top: 50px;
+  padding: 20px; /* Adiciona espaçamento interno */
+  height: auto; /* Remove altura fixa */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: white;
+}
+
+/* Estilos para a elipse */
+.ellipse {
+  width: 20%;
+  height: 80%;
+  background-color: #93B1A6;
+  border-radius: 0 100% 100% 0;
+  position: absolute;
+  top: 50%; /* Ajuste o valor para posicionar a elipse mais abaixo */
+  left: 0;
+  transform: translateY(-50%); /* Mantém a elipse centralizada verticalmente */
+}
+
+/* Estilos para a imagem central */
+.central-image {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura máxima da div */
+    max-height: 100%; /* Garante que a imagem não ultrapasse a altura máxima da div */
+    width: 520px; /* Permite que a largura da imagem se ajuste automaticamente */
+    height: 520px; /* Permite que a altura da imagem se ajuste automaticamente */
+}
+
+/* Estilos para os links e a logo */
+.links-and-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinha os itens à direita */
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.link, .logo {
+  margin-left: 10px; /* Reduz o espaçamento entre os links e a logo */
+}
+
+.link {
+  color: #333;
+  text-decoration: none;
+  font-size: 20px; /* Tamanho da fonte ajustado para dispositivos móveis */
+}
+
+.logo {
+  width: auto;
+  height: auto;
+  max-width: 150px; /* Tamanho da logo ajustado para dispositivos móveis */
+  max-height: 150px;
+  margin-right: 10px;
+}
+
+                                                             /* Seção "Quem Somos?" da pagina */
+.quem-somos-section {
+  background-color: #93B1A6; /* Define a cor de fundo */
+  padding: 50px 20px; /* Adiciona espaçamento interno */
+  display: flex;
+  justify-content: center;
+}
+
+.quem-somos-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px; /* Define uma largura máxima para o conteúdo */
+  width: 100%;
+}
+
+.text {
+  flex: 1; /* Faz o texto ocupar o espaço restante */
+  padding-right: 100px; /* Adiciona espaçamento à direita */
+  max-width: 500px;
+  padding-left: 80px;
+}
+/* Formatação do titulo da seção */
+.quem-somos-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+/* Formatação do texto da seção */
+.quem-somos-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+/* Formatação da imagem da seção */
+.quem-somos-image {
+  margin-left: 300px;
+  width: 300px;
+  height: 300px;
+} 
+
+                                                             /* Seção do botão de cadastro */
+.call-to-action-section {
+  background-color: #183D3D; /* Define a cor de fundo */
+  padding: 50px 20px; /* Adiciona espaçamento interno */
+  text-align: center; /* Centraliza o conteúdo */
+}
+
+.call-to-action-content {
+  max-width: 1200px; /* Define uma largura máxima para o conteúdo */
+  margin: 0 auto; /* Centraliza a div na página */
+}
+
+.call-to-action-section h2 {
+  color: #fff; /* Define a cor do texto como branco */
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.call-to-action-section p {
+  color: #fff; /* Define a cor do texto como branco */
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+/* Botão de cadastro */
+.cta-button {
+  background-color: #005951; /* Verde mais escuro */
+  color: #fff; /* Cor do texto como branco */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #00413b; /* Altera a cor ao passar o mouse */
+}
+
+                                                             /* Seção de dados de contato da pagina */
+.contato-section {
+  background-color: white;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  margin-bottom: 50px;
+}
+
+.contato-left {
+  max-width: 700px; /* Define uma largura máxima para o conteúdo */
+  width: 100%;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+.contato-right {
+  justify-content: center;
+  align-items: center;
+ margin-top: 50px;
+}
+
+.contato-item {
+  margin-bottom: 20px;
+  display: block; /* Usa flexbox para alinhar o ícone e o texto horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+/* Formatação dos icones desta sessão */
+.contato-item ion-icon {
+  margin-right: 10px;
+  color: #183D3D;
+}
+
+ion-con.md.hydrated{
+  width: 80px;
+  height: 100px;
+  color: #183D3D;
+}
+
+/* Para garantir que o texto e o ícone não sejam quebrados */
+.contato-item p {
+  margin: 0;
+  white-space: nowrap; /* Impede que o texto seja quebrado */
+}
+
+.logo {
+  max-width: 350px;
+  max-height: 500px;
+}
+
+                                                             /* Rodapé */
+/* Fundo e estrutura do rodpé */
+.footer {
+  background-color: #183D3D;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+/* Conteudo do rodapé */
+.footer-column {
+  flex: 1; /* Distribui o espaço disponível igualmente entre todos os elementos com a classe .footer-column */
+  margin-right: 20px; /*cria um espaço entre os elementos adjacentes na direção horizontal*/
+}
+
+/* Remove a margem direita do último elemento, para que não haja espaço extra à direita dele. */
+.footer-column:last-child {
+  margin-right: 0;
+}
+/* Formatação do texto do rodapé */
+.footer-column p {
+  margin-bottom: 10px;
+}
+/* Formatação dos icones do rodapé */
+.footer-column ion-icon {
+  margin-bottom: 20px;
+  font-size: 70px;
+  text-align: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  text-decoration: none; /* Garante que a cor dos icones não será alterada apesar de serem links */
+  color: white;
+}
+
+/* Estilos para dispositivos menores, por exemplo, tablets e smartphones */
+@media screen and (max-width: 768px) {
+  .fixed-header {
+    flex-direction: column; /* Altera a direção do flexbox para empilhar os itens verticalmente */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+  }
+
+  .text-menu {
+    margin: 10px 0; /* Reduz o espaçamento entre os itens do menu */
+    font-size: 16px; /* Reduz o tamanho da fonte do menu */
+  }
+
+  .central-div {
+    margin-top: 50px; /* Reduz o espaço superior */
+  }
+
+  .quem-somos-content {
+    flex-direction: column; /* Empilha os elementos verticalmente */
+  }
+
+  .text {
+    padding: 0; /* Remove o preenchimento */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .quem-somos-image, .logo {
+    margin-left: 0; /* Remove a margem à esquerda */
+    margin-bottom: 20px; /* Adiciona espaço inferior */
+  }
+
+  .cta-button {
+    padding: 8px 16px; /* Reduz o preenchimento do botão */
+    font-size: 14px; /* Reduz o tamanho da fonte do botão */
+  }
+
+  .contato-section {
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: center; /* Centraliza os itens */
+  }
+
+  .contato-left {
+    padding-right: 0; /* Remove o preenchimento à direita */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .footer {
+    flex-direction: column; /* Empilha as colunas verticalmente em dispositivos menores */
+    align-items: center;
+    text-align: center;
+
+}
+
+.footer-column {
+    flex: 1 0 100%; /* As colunas ocuparão 100% do espaço em dispositivos menores */
+    margin-right: 0;
+}
+
+}

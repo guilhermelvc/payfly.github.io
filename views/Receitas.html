@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayFly</title>
+    <link rel="icon" type="image/png" href="../view/imgs/Favicon.png">
+    
+    <!-- ======= Estilos ====== -->
+    <link rel="stylesheet" href="../views/css/style.css">
+    
+</head>
+
+<body>
+    <!-- =============== Menu Navegação ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="../views/imgs/logo.svg" alt="Logo">
+                        </span>
+                        <span class="title">PayFly</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Painel.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Painel Principal</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Despesas.html">
+                        <span class="icon">
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </span>
+                        <span class="title">Despesas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Receitas.html">
+                        <span class="icon">
+                            <ion-icon name="card-outline"></ion-icon>
+                        </span>
+                        <span class="title">Receitas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Planos.html">
+                        <span class="icon">
+                            <ion-icon name="airplane-outline"></ion-icon>
+                        </span>
+                        <span class="title">Planos</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Configurações.html">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Configurações</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a onclick="logout()">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Principal ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <!-- <div class="search">
+                    <label>
+                        <input type="text" placeholder="Pesquise aqui">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>-->
+
+                <div id="user-info">
+                    <a href="Configurações.html">Usuário logado: <span id="user-email"></span></a>
+                </div>
+            </div>
+
+            <!-- ======================= Cartões ================== -->
+            <div class="cardBox">
+                
+                <div class="card">
+                    <div>
+                        <div class="numbers"><p id="totalReceitaDisplay">R$ 0,00</p></div>
+                        <div class="cardName">Total Receitas</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="cash-outline"></ion-icon>
+                    </div>
+                </div>                
+            
+            
+                <!-- Novo cartão para exibir o valor das receitas filtradas -->
+                <div class="card">
+                    <div>
+                        <div class="numbers"><p id="filteredReceitaDisplay">R$ 0,00</p></div>
+                        <div class="cardName">Receitas Filtradas</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="filter-outline"></ion-icon>
+                    </div>
+                </div>
+            
+            </div>
+
+            <!-- ================ Dashboard ================= -->
+            <section id="transaction">
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <a onclick="Modal.open()" class="add-transaction-button">+ Adicionar Receita</a>
+                        <a href="#" onclick="FilterModal.open()" class="btn1">
+                            <ion-icon name="filter-outline"></ion-icon> Filtrar
+                        </a>                
+                    </div>
+
+                    <table id='data-table'>
+                        <thead>
+                            <tr>
+                                <td>Descrição</td>
+                                <td>Valor</td>
+                                <td>Data</td>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="footOptions">
+                        <a href="#" onclick="filterClear()" class="btn1">Limpar Filtro</a>
+                </div> 
+            </section>
+
+             <!-- =========== Modal =========  -->
+
+             
+    <div class="modal-overlay">
+        <div class="modal">
+            <div id="form">
+                <h2>Adicionar Transação</h2>
+
+                <form onsubmit="Form.submit(event)">
+                    <div class="input-group">
+                        <label for="description" class="sr-only">Descrição</label>
+                        <input type="text" id="description" name="description" placeholder="Descrição">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="amount" class="sr-only">Valor</label>
+                        <input type="number" id="amount" name="amount" placeholder="0,00" step="0.01">
+                    </div>
+
+                    <small class="help-for-modal">Use o sinal (-) para saldos negativos. </small>
+
+                    <div class="input-group">
+                        <label for="date" class="sr-only">Data</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                    <div class="input-group actions">
+                        <a onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toast">
+        <div class="img"><h1>×</h1></div>
+        <div class="description">Por favor, preencha todos os campos!</div>
+    </div>
+
+    <!-- =============================  Modal do Filtro ============================-->
+
+    <!-- =========== Modal de Filtro =========  -->
+<div class="modal-overlay filter-modal-overlay">
+    <div class="modal filter-modal">
+        <div id="filter-form">
+            <h2>Filtrar Receitas</h2>
+
+            <form id="filter-form" onsubmit="filterReceitas(event)">
+                <div class="input-group">
+                    <label for="descricao" class="sr-only">Descrição</label>
+                    <input type="text" id="descricao" name="descricao" placeholder="Descrição">
+                </div>
+
+                <div class="input-group">
+                    <label for="valor" class="sr-only">Valor</label>
+                    <input type="number" id="valor" name="valor" placeholder="0,00" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label for="data" class="sr-only">Data</label>
+                    <input type="date" id="data" name="data">
+                </div>
+
+                <div class="input-group actions">
+                    <a onclick="FilterModal.close()" class="button cancel">Cancelar</a>
+                    <button type="submit">Filtrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <!-- =========================== Modal de Editar ============================-->
+     
+<!-- =========== Modal de Edição =========  -->
+<div class="modal-overlay edit-modal-overlay">
+    <div class="modal edit-modal">
+        <div id="edit-form">
+            <h2>Editar Transação</h2>
+
+            <form id="edit-form" onsubmit="submitEditForm(event)">
+                <div class="input-group">
+                    <label for="edit-description" class="sr-only">Descrição</label>
+                    <input type="text" id="edit-description" name="description" placeholder="Descrição">
+                </div>
+
+                <div class="input-group">
+                    <label for="edit-amount" class="sr-only">Valor</label>
+                    <input type="number" id="edit-amount" name="amount" placeholder="0,00" step="0.01">
+                </div>
+
+                <small class="help-for-modal">Use o sinal (-) para saldos negativos. </small>
+
+                <div class="input-group">
+                    <label for="edit-date" class="sr-only">Data</label>
+                    <input type="date" id="edit-date" name="date">
+                </div>
+
+                <div class="input-group actions">
+                    <a onclick="closeEditModal()" class="button cancel">Cancelar</a>
+                    <button type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    
+    <!-- =========== Scripts =========  -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+
+    <script src="../controllers/firebase-init.env"></script>
+    
+    <script src="../controllers/main.js"></script>
+    <script src="../models/receita.js" ></script>
+
+    <script src="../controllers/firebase-guard.env"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        function logout () {
+    firebase.auth().signOut().then(() => {
+        window.location.replace("/index.html");
+    })
+}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>PayFly</title>
+    <!-- ======= Estilos ====== -->
+    <link rel="icon" type="image/png" href="../imgs/Favicon.png">    
+    <link rel="stylesheet" href="../views/css/login.css">
+</head>
+<body>
+    <div class="centralizer">
+    <div class="container">
+        <div class="welcome">Seja bem-vindo!</div>
+        <div class="title">Faça o login</div>
+        <form>
+            <div class="form-field">
+                <label>Email</label>
+                <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()"/>
+                <div class="error" id="email-required-error">Email é obrigatório</div>
+                <div class="error" id="email-invalid-error">Email é inválido</div>
+            </div>
+            <div class="form-field">
+                <label>Senha</label>
+                <input type="password" name="password" id="password" placeholder="Senha" onchange="onChangePassword()"/>
+                <div class="error" id="password-required-error">Senha é obrigatória</div>
+            </div>
+            <div>
+                <button type="button" class="clear" id="recover-password-button" disabled="true" onclick="recoverPassword()">Recuperar senha</button>
+            </div>
+            <div>
+                <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
+            </div>
+            <div>
+                <button type="button" class="outline" onclick="register()">Cadastre-se</button>
+            </div>
+            <div>
+                <button type="button" class="outline" id="google-login-button" onclick="googleLogin()">
+                    <img src="../views/imgs/google.png" alt="Google" width="20" height="20">
+                    Login com Google
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+<script src="../controllers/firebase-init.env"></script>
+<script src="../models/login.js"></script>
+
+
+
+</html>

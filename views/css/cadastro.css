@@ -1,0 +1,149 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #2a2185;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+  --green: #93B1A6;
+  --red: red;
+  --green2: #183D3D;
+  --green3: #005951;
+}
+
+body {
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 300px;
+  background-color: var(--green);
+  padding: 20px;
+  border: 1px solid var(--green2);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1.0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--green2);
+  margin-bottom: 20px;
+}
+
+.welcome {
+  font-size: 18px;
+  color: var(--green2);
+  margin-bottom: 20px;
+}
+
+.form {
+  width: 100%;
+  padding: 20px;
+}
+
+input {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input, button {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+button[disabled] {
+  opacity: 0.8;
+}
+
+.clear {
+  background: transparent;
+  border: none;
+  color: var(--green2);
+}
+
+.solid {
+  background: var(--green2);
+  border: none;
+  border-radius: 10px;
+  color: var(--white);
+}
+
+.outline {
+  background: transparent;
+  color: var(--green2);
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.icon {
+  background: transparent;
+  color: var(--green2);
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.error {
+  background: var(--red);
+  color: var(--white);
+  display: none;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* Adicionado para tornar o layout responsivo */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+  input, button {
+    font-size: 16px;
+  }
+}
+
+/* Adicionado para tornar os textos grandes e bem visíveis */
+label, input, button {
+  font-size: 18px;
+}
+
+/* Adicionado para tornar as caixas de texto com bordas arredondadas */
+input[type="email"], input[type="password"] {
+  border-radius: 10px;
+}
+

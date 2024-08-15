@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayFly</title>
+    <!-- ======= Estilos ====== -->
+    <link rel="icon" type="image/png" href="../views/imgs/Favicon.png">
+    <link rel="stylesheet" href="../views/css/cadastro.css">   
+</head>
+
+<div class="centralizer">
+<div class="container">
+    <div class="welcome">Seja bem-vindo!</div>
+    <div class="title">Cadastre-se</div>
+    <form>
+        <div class="form-field">
+            <div><label>Email</label></div>
+            <input type="email" placeholder="seu@email.com"
+                onchange="onChangeEmail()" id="email"/>
+            <div class="error" id="email-required-error">
+                Email é obrigatório
+            </div>
+            <div class="error" id="email-invalid-error">
+                Email é inválido
+            </div>
+        </div>
+        <div class="form-field">
+            <div><label>Senha</label></div>
+            <input type="password" placeholder="Senha"
+                id="password" onchange="onChangePassword()"/>
+            <div class="error" id="password-required-error">
+                Senha é obrigatório
+            </div>
+            <div class="error" id="password-min-length-error">
+                Senha deve ter pelo menos 6 caracteres
+            </div>
+        </div>
+        <div class="form-field">
+            <div><label>Confirmar senha</label></div>
+            <input type="password" placeholder="Confirmar senha"
+                id="confirmPassword" onchange="onChangeConfirmPassword()"/>
+            <div class="error" id="password-doesnt-match-error">
+                As senhas devem ser iguais
+            </div>
+        </div>
+        <div>
+            <button type="button" class="solid" disabled="true" id="register-button" onclick="register()">Cadastrar
+            </button>
+        </div>
+        <div>
+            <button type="button" class="outline" onclick="login()">Voltar</button>
+        </div>
+        
+    </form>
+</div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+
+<script src="../controllers/firebase-init.env"></script>
+<script src="../models/cadastro.js"></script>
+
+<script>
+    function logout () {
+firebase.auth().signOut().then(() => {
+    window.location.replace("/index.html");
+})
+}
+</script>
+
+
+<script>
+function validateEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+}
+</script>
+
+</html>
