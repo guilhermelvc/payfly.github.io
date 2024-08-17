@@ -1,6 +1,6 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    window.location.replace("/views/Painel.html");
+    window.location.replace("../views/Painel.html");
   }
 })
 
@@ -19,7 +19,7 @@ function login() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     firebase.auth().signInWithEmailAndPassword(email, password).then(response => {
-      window.location.replace("/views/Painel.html");
+      window.location.replace("../views/Painel.html");
     }).catch(error => {
       alert(getErrorMessage(error)); // passe o error como parâmetro
     })
@@ -41,7 +41,7 @@ function login() {
   }
 
   function register() {
-    window.location.replace("/views/Cadastro.html");
+    window.location.replace("../views/Cadastro.html");
   }
   
   function recoverPassword() {
@@ -113,7 +113,7 @@ function googleLogin() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      window.location.replace("/views/Painel.html");
+      window.location.replace("../views/Painel.html");
     })
     .catch((error) => {
       console.log(error);
