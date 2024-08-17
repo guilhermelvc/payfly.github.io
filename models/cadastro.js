@@ -1,6 +1,6 @@
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      window.location.replace("/views/Painel.html");
+      window.location.replace("../views/Painel.html");
     }
   })
 
@@ -33,7 +33,7 @@ function register() {
     const password = document.getElementById("password").value;
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
         alert("Usuário cadastrado com sucesso!");
-        window.location.href = "/views/Login.html";
+        window.location.href = "../views/Login.html";
     }).catch(error => {
         if (error) {
             alert(getErrorMessage(error));
@@ -49,7 +49,7 @@ function getErrorMessage(error) {
 }
 
 function login () {
-    window.location.replace("/views/Login.html");
+    window.location.replace("../views/Login.html");
 }
 
 function validatePasswordsMatch() {
